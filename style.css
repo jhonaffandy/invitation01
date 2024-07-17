@@ -238,6 +238,10 @@ body {
         text-align: center;
     }
 
+    .sticky-top {
+        overflow: hidden;
+    }
+
 }
 
 /* mobile */

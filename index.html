@@ -208,6 +208,19 @@
             countUp: false, // enable count up if set to true
         })
     </script>
+
+    <script>
+        const hamburger = document.querySelector('.navbar-toggler')
+        const stickyTop = document.querySelector('.sticky-top')
+        const offcanvas = document.querySelector('.offcanvas')
+
+        offcanvas.addEventListener('show.bs.offcanvas', () => {
+            stickyTop.style.overflow = 'visible'
+        })
+        offcanvas.addEventListener('hidden.bs.offcanvas', () => {
+            stickyTop.style.overflow = 'hidden'
+        })
+    </script>
 </body>
 
 </html>
