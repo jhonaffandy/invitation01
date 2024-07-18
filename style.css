@@ -1,9 +1,14 @@
+/* ==================================================== root variable ==================================================== */
 :root {
     --pink: #f14e95;
     --bg: #0a0a0a;
     --shadow: 0 2px 2px rgba(0, 0, 0, 0.5);
 }
 
+/* ================================================== end root variable ================================================== */
+
+
+/* ================================================== all body ================================================== */
 body {
     font-size: 1.2rem;
     font-family: "Edu AU VIC WA NT Hand", cursive;
@@ -13,6 +18,10 @@ body {
   font-style: normal; */
 }
 
+/* ================================================== end all body ================================================== */
+
+
+/* ================================================== hero section ================================================== */
 .hero::before {
     content: '';
     position: absolute;
@@ -66,6 +75,9 @@ body {
     color: white;
 }
 
+/* ================================================== end hero section ================================================== */
+
+/* ================================================== navbar component ================================================== */
 .mynavbar {
     background-color: rgba(255, 255, 255, 0.3) !important;
     backdrop-filter: blur(4px);
@@ -87,6 +99,9 @@ body {
     text-transform: uppercase;
 }
 
+/* ================================================== end navbar component ================================================== */
+
+/* ================================================== home section ================================================== */
 .home::before {
     content: '';
     background-image: url(img/ornament-1.png);
@@ -109,13 +124,18 @@ body {
     padding-bottom: 5rem;
 }
 
+/* multiple usage */
 .home h2,
-.info h2 {
+.info h2,
+.story h2,
+.gallery h2 {
     color: var(--pink);
     font-family: 'Sacramento';
     font-size: 5rem;
     font-weight: bold;
 }
+
+/* end multiple usage */
 
 .home h3 {
     color: #444;
@@ -159,6 +179,9 @@ body {
     color: var(--pink);
 }
 
+/* ================================================== end home section ================================================== */
+
+/* ================================================== info section ================================================== */
 .info {
     background-color: var(--bg);
     color: white;
@@ -197,6 +220,155 @@ body {
     font-weight: 300;
 }
 
+/* ================================================== end info section ================================================== */
+
+/* ================================================== story section ================================================== */
+.story,
+.gallery {
+    padding-top: 10rem;
+    padding-bottom: 8rem;
+}
+
+.story span,
+.gallery span {
+    text-transform: uppercase;
+    color: #666;
+    font-size: .9rem;
+    letter-spacing: 1px;
+    display: block;
+    margin-bottom: 1rem;
+}
+
+.story p,
+.gallery p {
+    font-size: 1rem;
+    font-weight: 300;
+}
+
+/* ###### time line component ####### */
+.timeline {
+    list-style: none;
+    padding: 1.4rem 0;
+    margin-top: 1rem;
+    position: relative;
+}
+
+.timeline::before {
+    content: '';
+    top: 0;
+    bottom: 0;
+    position: absolute;
+    width: 1px;
+    background-color: #ccc;
+    left: 50%;
+}
+
+.timeline li::before,
+.timeline li::after {
+    content: '';
+    display: table;
+}
+
+.timeline li::after {
+    clear: both;
+}
+
+.timeline li.timeline-inverted,
+.timeline li {
+    position: relative;
+}
+
+.timeline li .timeline-image {
+    width: 160px;
+    height: 160px;
+    background-color: #ccc;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    border-radius: 50%;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.timeline li .timeline-panel {
+    width: 40%;
+    float: left;
+    border: 1px solid #ccc;
+    padding: 2rem;
+    position: relative;
+    border-radius: 8px;
+    background-color: #fff;
+}
+
+.timeline li .timeline-panel::before {
+    content: '';
+    display: inline-block;
+    position: absolute;
+    /* width: 30px;
+    height: 30px;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    right: -15px;
+    top: 70px;
+    transform: rotate(45deg);
+    z-index: -1; */
+    border-top: 15px solid transparent;
+    border-left: 15px solid #ccc;
+    border-right: 0 solid #ccc;
+    border-bottom: 15px solid transparent;
+    top: 80px;
+    right: -15px;
+}
+
+.timeline li .timeline-panel::after {
+    content: '';
+    position: absolute;
+    display: inline-block;
+    border-top: 14px solid transparent;
+    border-left: 14px solid #fff;
+    border-right: 0 solid #fff;
+    border-bottom: 14px solid transparent;
+    top: 81px;
+    right: -13px;
+}
+
+.timeline li.timeline-inverted .timeline-panel {
+    width: 40%;
+    float: right;
+    border: 1px solid #ccc;
+    padding: 2rem;
+    position: relative;
+    border-radius: 8px;
+    background-color: #fff;
+}
+
+.timeline li.timeline-inverted .timeline-panel::before {
+    border-left-width: 0;
+    border-right-width: 15px;
+    left: -15px;
+    right: auto
+}
+
+.timeline li.timeline-inverted .timeline-panel::after {
+    border-left-width: 0;
+    border-right-width: 14px;
+    left: -13px;
+    right: auto
+}
+
+/* ###### end timeline component ###### */
+/* ================================================== end story section ================================================== */
+
+/* ================================================== gallery section ================================================== */
+.gallery {
+    background-color: #ffd4e6;
+}
+
+/* ================================================== end gallery section ================================================== */
+
+
+
 /*=============================== media query ===============================*/
 /* extra large */
 @media (max-width:1200px) {
@@ -219,6 +391,42 @@ body {
     .home .heart {
         display: none
     }
+
+    .timeline::before {
+        left: 60px;
+    }
+
+    .timeline li .timeline-image,
+    .timeline li.timeline-inverted .timeline-image {
+        left: 15px;
+        margin-left: 45px;
+        top: 16px;
+        /* margin-top: 16px; */
+    }
+
+    .timeline li .timeline-panel,
+    .timeline li.timeline-inverted .timeline-panel {
+        width: calc((100% - 200px));
+        float: right;
+        /*tambahan*/
+        margin-bottom: 10px;
+    }
+
+
+    .timeline li .timeline-panel::before {
+        border-left-width: 0;
+        border-right-width: 15px;
+        left: -15px;
+        right: auto
+    }
+
+    .timeline li .timeline-panel::after {
+        border-left-width: 0;
+        border-right-width: 14px;
+        left: -13px;
+        right: auto
+    }
+
 }
 
 /* tablet */
@@ -242,6 +450,10 @@ body {
         overflow: hidden;
     }
 
+    .timeline li .timeline-image {
+        width: 140px;
+        height: 140px;
+    }
 }
 
 /* mobile */
@@ -253,5 +465,24 @@ body {
     .simply-countdown>.simply-section {
         padding: 30px;
         margin: 3px;
+    }
+
+    .timeline li .timeline-image {
+        width: 80px;
+        height: 80px;
+    }
+
+    .timeline li .timeline-panel,
+    .timeline li.timeline-inverted .timeline-panel {
+        width: 65%;
+        transform: translateX(-20px);
+    }
+
+    .timeline li .timeline-panel::before {
+        top: 30px;
+    }
+
+    .timeline li .timeline-panel::after {
+        top: 31px;
     }
 }
