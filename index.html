@@ -32,7 +32,7 @@
             <h1>hananta & adinda</h1>
             <p>akan melangsungkan acara dalam:</p>
             <div class="simply-countdown"></div>
-            <a href="#undangan" class="btn btn-lg mt-4">Lihat Undangan</a>
+            <a href="#undangan" class="btn btn-lg mt-4" onclick="enableScroll()">Lihat Undangan</a>
         </main>
     </section>
 
@@ -306,14 +306,106 @@
         </div>
     </section>
 
+    <section class="rsvp" id="rsvp">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-md-8 col-10 text-center">
+                    <h2>Konfirmasi Kehadiran</h2>
+                    <p>Isi form dibawah untuk melakukan konfirmasi kehadiran</p>
+                </div>
+            </div>
+            <form class="row row-cols-md-auto g-3 align-items-center justify-content-center" method="post" id="my-form"
+                action="https://script.google.com/macros/s/AKfycbw2AOuAKOpycS3L4K6wZSUJuqO2Bh6R8egxlimr-OFi3-ngRhno8lHDRJ3FMckp7LWD/exec">
+                <div class="col-12">
+                    <div class="mb-3">
+                        <label for="nama" class="form-label">Nama</label>
+                        <input type="text" class="form-control" id="nama" name="nama">
+                    </div>
+                </div>
+                <div class="col-12">
+                    <div class="mb-3">
+                        <label for="jumlah" class="form-label">Jumlah</label>
+                        <input type="number" class="form-control" id="jumlah" name="jumlah" min="1" max="5"
+                            maxLength="1" value="1">
+                    </div>
+                </div>
+                <div class="col-12">
+                    <div class="mb-3">
+                        <label for="status" class="form-label">Konfirmasi</label>
+                        <select name="status" id="status" class="form-select">
+                            <option selected>Pilih salah satu</option>
+                            <option value="HADIR">Hadir</option>
+                            <option value="TIDAK HADIR">Tidak Hadir</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="col-12" style="margin-top: 35px;">
+                    <button class="btn btn-primary">Kirim</button>
+                </div>
+
+            </form>
+    </section>
+
+    <section class="gifts" id="gifts">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-md-8 col-10 text-center">
+                    <span>ungkapan tanda kasih</span>
+                    <h2>Kirim Hadiah</h2>
+                    <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Blanditiis perspiciatis odit dolorum
+                        nostrum aliquam impedit excepturi tempora soluta nisi nesciunt!</p>
+                </div>
+            </div>
+            <div class="row justify-content-center text-center">
+                <div class="col-md-6">
+                    <ul class="list-group">
+                        <li class="list-group-item">
+                            <div class="fw-bold">BCA</div>
+                            12345678 - Hananta
+                        </li>
+                        <li class="list-group-item">
+                            <div class="fw-bold">Mandiri</div>
+                            12345678 - Hananta
+                        </li>
+                        <li class="list-group-item">
+                            <div class="fw-bold">BRI</div>
+                            12345678 - Adinda
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="row">
+                <div class="col text-center">
+                    <small class="block">&copy; 2024 Joe dev. All Right Reserved.</small>
+                    <small class="block">Design by <a href="http://instagram.com/johantrya">@johantrya</a></small>
+
+                    <ul class="mt-3">
+                        <li><a href=""><i class="bi bi-instagram"></i></a></li>
+                        <li><a href=""><i class="bi bi-facebook"></i></a></li>
+                        <li><a href=""><i class="bi bi-youtube"></i></a></li>
+                        <li><a href=""><i class="bi bi-threads"></i></a></li>
+                        <li><a href=""><i class="bi bi-twitter"></i></a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </footer>
+
 
     <!-- bootstrap -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
         crossorigin="anonymous"></script>
+
     <!-- lighbox -->
     <!-- https://trvswgnr.github.io/bs5-lightbox/ -->
     <script src="https://cdn.jsdelivr.net/npm/bs5-lightbox@1.8.3/dist/index.bundle.min.js"></script>
+
     <!-- countdown option -->
     <script>
         simplyCountdown('.simply-countdown', {
@@ -358,6 +450,50 @@
         offcanvas.addEventListener('hidden.bs.offcanvas', () => {
             stickyTop.style.overflow = 'hidden'
         })
+    </script>
+
+    <!-- disable scroll -->
+    <script>
+        const rootElement = document.querySelector(':root')
+        function disableScroll() {
+            scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+            scrollLeft = window.pageXOffset || document.documentElement.scrollLeft;
+
+            window.onscroll = function () {
+                window.scrollTo(scrollTop, scrollLeft)
+            }
+            rootElement.style.scrollBehavior = 'auto'
+        }
+
+        function enableScroll() {
+            window.onscroll = function () { }
+            rootElement.style.scrollBehavior = 'smooth'
+            localStorage.setItem('opened', 'true')
+        }
+
+        if (!localStorage.getItem('opened')) {
+            disableScroll();
+        }
+    </script>
+
+    <!-- gform submit js -->
+    <script>
+        window.addEventListener("load", function () {
+            const form = document.getElementById('my-form');
+            form.addEventListener("submit", function (e) {
+                e.preventDefault();
+                const data = new FormData(form);
+                const action = e.target.action;
+                fetch(action, {
+                    method: 'POST',
+                    body: data,
+                })
+                    .then(() => {
+                        alert("Konfirmasi kerhadiran berhasil terkirim!");
+                    })
+            });
+        });
+
     </script>
 </body>
 
