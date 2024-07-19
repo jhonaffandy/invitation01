@@ -32,7 +32,7 @@
             <h1>hananta & adinda</h1>
             <p>akan melangsungkan acara dalam:</p>
             <div class="simply-countdown"></div>
-            <a href="#undangan" class="btn btn-lg mt-4" onclick="enableScroll()">Lihat Undangan</a>
+            <a href="#home" class="btn btn-lg mt-4" onclick="enableScroll()">Lihat Undangan</a>
         </main>
     </section>
 
@@ -396,6 +396,16 @@
         </div>
     </footer>
 
+    <div id="audio-container">
+        <audio id="song" autoplay loop>
+            <source src="song/wedding-song-1.mp3" type="audio/mp3">
+        </audio>
+        <div class="audio-icon-wrapper" style="display: none;">
+            <i class="bi bi-disc"></i>
+        </div>
+    </div>
+
+
 
     <!-- bootstrap -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
@@ -455,6 +465,11 @@
     <!-- disable scroll -->
     <script>
         const rootElement = document.querySelector(':root')
+        const audioIconWrapper = document.querySelector('.audio-icon-wrapper')
+        const audioIcon = document.querySelector('.audio-icon-wrapper i')
+        const song = document.querySelector('#song')
+        let isPlaying = false;
+
         function disableScroll() {
             scrollTop = window.pageYOffset || document.documentElement.scrollTop;
             scrollLeft = window.pageXOffset || document.documentElement.scrollLeft;
@@ -468,12 +483,35 @@
         function enableScroll() {
             window.onscroll = function () { }
             rootElement.style.scrollBehavior = 'smooth'
-            localStorage.setItem('opened', 'true')
+            // localStorage.setItem('opened', 'true')
+            playAudio()
         }
 
-        if (!localStorage.getItem('opened')) {
-            disableScroll();
+        function playAudio() {
+            song.volume = 0.5;
+            audioIconWrapper.style.display = 'flex'
+            song.play()
+            isPlaying = true
         }
+
+        audioIconWrapper.onclick = function () {
+            if (isPlaying) {
+                song.pause();
+                audioIcon.classList.remove('bi-disc')
+                audioIcon.classList.add('bi-pause-circle')
+            } else {
+                song.play()
+                audioIcon.classList.add('bi-disc')
+                audioIcon.classList.remove('bi-pause-circle')
+            }
+            isPlaying = !isPlaying
+        }
+
+        // if (!localStorage.getItem('opened')) {
+        // disableScroll();
+        // }
+
+        disableScroll();
     </script>
 
     <!-- gform submit js -->
@@ -495,6 +533,16 @@
         });
 
     </script>
+
+    <!-- close on href js -->
+    <script>
+        const navlink = document.querySelector('.nav-link')
+        navlink.addEventListener('click', () => {
+            const buttonCLose = document.querySelector('.btn-close')
+            buttonCLose.click()
+        })
+    </script>
+
 </body>
 
 </html>
