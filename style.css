@@ -464,6 +464,39 @@ footer li {
 /* ================================================== end audio section ================================================== */
 
 
+/* ================================================== animation section ================================================== */
+section.animated-section .container .row-animated {
+    opacity: 0;
+    transition: opacity 10s ease;
+}
+
+section.animated-section .container .row.hidden {
+    opacity: 0;
+    transition: opacity 10s ease;
+}
+
+section.animated-section .container .row.visible {
+    opacity: 1;
+}
+
+/* ================================================== end animation section ================================================== */
+
+
+/* ================================================== end animation section ================================================== */
+.comments {
+    margin: 5px 10px;
+    height: 250px;
+    /* Fixed height for the comments div */
+    overflow-y: auto;
+    /* Enable vertical scroll if content exceeds height */
+    border: 1px solid #ccc;
+    /* Optional: Add border for visual clarity */
+    padding: 10px;
+    /* Optional: Add padding for spacing */
+}
+
+/* ================================================== end animation section ================================================== */
+
 
 
 /*=============================== media query ===============================*/
@@ -581,5 +614,10 @@ footer li {
 
     .timeline li .timeline-panel::after {
         top: 31px;
+    }
+
+    #my-form {
+        margin-left: 10px;
+        margin-right: 10px;
     }
 }

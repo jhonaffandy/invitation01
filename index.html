@@ -109,9 +109,9 @@
         </div>
     </section>
 
-    <section id="info" class="info">
+    <section id="info" class="info animated-section">
         <div class="container">
-            <div class="row justify-content-center">
+            <div class="row justify-content-center hidden row-animated">
                 <div class="col-md-8 col-10 text-center">
                     <h2>Informasi Acara</h2>
                     <p class="alamat">Alamat: Wisma PGRI Magetan. <br> Jl. Kemasan No.1, Dusun Magetan, Magetan, Kec.
@@ -131,7 +131,7 @@
                 </div>
             </div>
 
-            <div class="row justify-content-center mt-4">
+            <div class="row row-animated justify-content-center mt-4 hidden">
                 <div class="col-md-5 col-10">
                     <div class="card text-center text-bg-light mb-5">
                         <div class="card-header">
@@ -180,9 +180,9 @@
         </div>
     </section>
 
-    <section id="story" class="story">
+    <section id="story" class="story animated-section1">
         <div class="container">
-            <div class="row justify-content-center">
+            <div class="row row-animated justify-content-center">
                 <div class="col-md-8 col-10 text-center">
                     <span>Bagaimana Cinta Kami Bersemi</span>
                     <h2>Cerita Kami</h2>
@@ -190,7 +190,7 @@
                         repellendus nostrum harum sunt.</p>
                 </div>
             </div>
-            <div class="row">
+            <div class="row row-animated">
                 <div class="col">
                     <ul class="timeline">
                         <li>
@@ -255,9 +255,9 @@
         </div>
     </section>
 
-    <section class="gallery" id="gallery">
+    <section class="gallery  animated-section1" id="gallery">
         <div class="container">
-            <div class="row justify-content-center">
+            <div class="row row-animated justify-content-center">
                 <div class="col-md-8 col-10 text-center">
                     <span>Memori Kisah Kami</span>
                     <h2>Galeri Foto</h2>
@@ -312,73 +312,63 @@
         </div>
     </section>
 
-    <section class="rsvp" id="rsvp">
+    <section class="rsvp animated-section1" id="rsvp">
         <div class="container">
-            <div class="row justify-content-center">
+            <div class="row row-animated justify-content-center">
                 <div class="col-md-8 col-10 text-center">
                     <h2>Konfirmasi Kehadiran</h2>
                     <p>Isi form dibawah untuk melakukan konfirmasi kehadiran</p>
                 </div>
             </div>
-            <form class="row row-cols-md-auto g-3 align-items-center justify-content-center" method="post" id="my-form"
+            <form class="row row-animated row-cols-md-auto g-3 align-items-center justify-content-center" method="post"
+                id="my-form"
                 action="https://script.google.com/macros/s/AKfycbw2AOuAKOpycS3L4K6wZSUJuqO2Bh6R8egxlimr-OFi3-ngRhno8lHDRJ3FMckp7LWD/exec">
                 <div class="col-12">
                     <div class="mb-3">
                         <label for="nama" class="form-label">Nama</label>
-                        <input type="text" class="form-control" id="nama" name="nama">
+                        <input type="text" class="form-control" id="nama" name="nama" required>
                     </div>
                 </div>
                 <div class="col-12">
                     <div class="mb-3">
                         <label for="jumlah" class="form-label">Jumlah</label>
                         <input type="number" class="form-control" id="jumlah" name="jumlah" min="1" max="5"
-                            maxLength="1" value="1">
+                            maxLength="1" value="1" required>
                     </div>
                 </div>
                 <div class="col-12">
                     <div class="mb-3">
                         <label for="status" class="form-label">Konfirmasi</label>
-                        <select name="status" id="status" class="form-select">
-                            <option selected>Pilih salah satu</option>
+                        <select name="status" id="status" class="form-select" required>
+                            <option value="" disabled selected>Pilih salah satu</option>
                             <option value="HADIR">Hadir</option>
                             <option value="TIDAK HADIR">Tidak Hadir</option>
                         </select>
                     </div>
                 </div>
-                <div class="col-12" style="margin-top: 35px;">
-                    <button class="btn btn-primary">Kirim</button>
+                <div class="col-12">
+                    <div class="mb-3">
+                        <label for="pesan" class="form-label">Kirim Pesan</label>
+                        <textarea name="pesan" id="" cols="" rows="1" maxlength="50" class="form-control"></textarea>
+                    </div>
+                </div>
+                <div class="col-12 d-flex justify-content-center" style="margin-top: 35px;">
+                    <button class="btn btn-primary formSubmitButton">Kirim</button>
                 </div>
 
             </form>
-            <div class="row justify-content-center mt-5">
+
+            <div class="row row-animated justify-content-center mt-5">
                 <div class="col-md-6">
-                    <div id="disqus_thread"></div>
-                    <script>
-                        /**
-                        *  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
-                        *  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables    */
-                        /*
-                        var disqus_config = function () {
-                        this.page.url = PAGE_URL;  // Replace PAGE_URL with your page's canonical URL variable
-                        this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
-                        };
-                        */
-                        (function () { // DON'T EDIT BELOW THIS LINE
-                            var d = document, s = d.createElement('script');
-                            s.src = 'https://invitation-wedding-trial.disqus.com/embed.js';
-                            s.setAttribute('data-timestamp', +new Date());
-                            (d.head || d.body).appendChild(s);
-                        })();
-                    </script>
-                    <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments
-                            powered by Disqus.</a></noscript>
+                    <div id="comments-list" class="comments bg-white rounded border"></div>
+                    <div id="pagination-controls" class="d-flex justify-content-center"></div>
                 </div>
             </div>
     </section>
 
-    <section class="gifts" id="gifts">
+    <section class="gifts animated-section1" id="gifts">
         <div class="container">
-            <div class="row justify-content-center">
+            <div class="row row-animated justify-content-center">
                 <div class="col-md-8 col-10 text-center">
                     <span>ungkapan tanda kasih</span>
                     <h2>Kirim Hadiah</h2>
@@ -386,7 +376,7 @@
                         nostrum aliquam impedit excepturi tempora soluta nisi nesciunt!</p>
                 </div>
             </div>
-            <div class="row justify-content-center text-center">
+            <div class="row row-animated justify-content-center text-center">
                 <div class="col-md-6">
                     <ul class="list-group">
                         <li class="list-group-item">
@@ -548,8 +538,11 @@
     <script>
         window.addEventListener("load", function () {
             const form = document.getElementById('my-form');
+            const formSubmitButton = document.querySelector('.formSubmitButton')
             form.addEventListener("submit", function (e) {
                 e.preventDefault();
+                formSubmitButton.innerText = 'Sending'
+                formSubmitButton.setAttribute('disabled', 'disabled')
                 const data = new FormData(form);
                 const action = e.target.action;
                 fetch(action, {
@@ -558,6 +551,8 @@
                 })
                     .then(() => {
                         alert("Konfirmasi kerhadiran berhasil terkirim!");
+                        formSubmitButton.innerText = 'Sent'
+                        fetchAndRenderSheetData();
                     })
             });
         });
@@ -566,10 +561,12 @@
 
     <!-- close on href js -->
     <script>
-        const navlink = document.querySelector('.nav-link')
-        navlink.addEventListener('click', () => {
-            const buttonCLose = document.querySelector('.btn-close')
-            buttonCLose.click()
+        const navLinks = document.querySelectorAll('.nav-link')
+        navLinks.forEach(navlink => {
+            navlink.addEventListener('click', () => {
+                const buttonCLose = document.querySelector('.btn-close')
+                buttonCLose.click()
+            })
         })
     </script>
 
@@ -586,6 +583,146 @@
     </script>
 
     <!-- comments -->
+    <script>
+        // URL of your published Google Sheets CSV (replace with your actual published URL)
+        const sheetUrl = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vR70h0rrqxhyxTn12dBPCgJGeBntxJKzEhBiGbK3wLc8gogU8KT_oNBmCCaRZZrqKGDGgJ0tR0jW1Ec/pub?output=csv'
+        const commentsPerPage = 10; // Number of comments per page
+        let currentPage = 1; // Current page number
+        let commentsData = []; // Array to store comments data
+        const maxPagesToShow = 5; // Maximum number of pagination buttons to show
+
+        // Function to fetch data from Google Sheets and render on webpage
+        async function fetchAndRenderSheetData() {
+            try {
+                const response = await fetch(sheetUrl);
+                if (!response.ok) {
+                    throw new Error('Network response was not ok');
+                }
+                const data = await response.text();
+
+                // Convert CSV data to JSON
+                const jsonArray = csvToJson(data);
+                commentsData = jsonArray.reverse()
+                console.log(jsonArray)
+                // new render with pagination
+                renderComments(currentPage);
+                renderPagination();
+            } catch (error) {
+                console.error('Error fetching or parsing data:', error.message);
+            }
+        }
+
+        // Function to convert CSV data to JSON format
+        function csvToJson(csv) {
+            const lines = csv.split('\n');
+            const result = [];
+            const headers = lines[0].split(',');
+
+            for (let i = 1; i < lines.length; i++) {
+                const obj = {};
+                const currentLine = lines[i].split(',');
+
+                for (let j = 0; j < headers.length; j++) {
+                    const header = headers[j].trim().replace(/^"(.*)"$/, '$1');
+                    const value = currentLine[j] ? currentLine[j].trim().replace(/^"(.*)"$/, '$1') : ''; // Handle empty cells gracefully
+                    obj[header] = value;
+                }
+
+                result.push(obj);
+            }
+
+            return result;
+        }
+
+        // Function to render comments for a specific page
+        function renderComments(page) {
+            const startIndex = (page - 1) * commentsPerPage;
+            const endIndex = startIndex + commentsPerPage;
+            const commentsList = document.getElementById('comments-list');
+            commentsList.innerHTML = ''; // Clear previous comments
+
+            for (let i = startIndex; i < endIndex && i < commentsData.length; i++) {
+                const comment = commentsData[i];
+                const commentElement = document.createElement('div');
+                commentElement.classList.add('row');
+                commentElement.innerHTML = `
+                            <h5>${comment.nama}: <span class="badge btn ${comment.status == 'HADIR' ? 'btn-success' : 'btn-warning'}">${comment.status}</span></h5>
+                            <h6>${comment.pesan}</h6>
+                            <hr>`;
+                commentsList.appendChild(commentElement);
+            }
+        }
+        // Function to render pagination controls
+        function renderPagination() {
+            const totalPages = Math.ceil(commentsData.length / commentsPerPage);
+            const paginationControls = document.getElementById('pagination-controls');
+            paginationControls.innerHTML = ''; // Clear previous pagination controls
+
+            const maxPages = Math.min(totalPages, maxPagesToShow); // Limit the number of pages to show
+            console.log(maxPages, totalPages, maxPagesToShow)
+            for (let i = 1; i <= totalPages; i++) {
+                const button = document.createElement('button');
+                button.textContent = i;
+                button.addEventListener('click', () => {
+                    currentPage = i;
+                    renderComments(currentPage);
+                });
+                paginationControls.appendChild(button);
+            }
+
+            // Optionally add a "Next" button
+            if (totalPages > maxPages) {
+                const nextButton = document.createElement('button');
+                nextButton.textContent = 'Next';
+                nextButton.addEventListener('click', () => {
+                    currentPage++;
+                    if (currentPage > totalPages) {
+                        currentPage = totalPages;
+                    }
+                    renderComments(currentPage);
+                });
+                paginationControls.appendChild(nextButton);
+            }
+        }
+
+        // Fetch and render sheet data on page load
+        fetchAndRenderSheetData();
+    </script>
+
+    <!-- animation -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const sections = document.querySelectorAll('.animated-section');
+
+            function checkScroll() {
+                sections.forEach(section => {
+                    const rect = section.getBoundingClientRect();
+                    console.log(rect)
+                    const scrollPosition = window.innerHeight / 1.5; // Adjust based on when you want the animation to start
+
+                    if (rect.top <= scrollPosition && rect.bottom >= scrollPosition) {
+                        const elements = section.querySelectorAll('.hidden');
+                        console.log(elements)
+                        elements.forEach(element => {
+                            element.classList.add('visible');
+                            element.classList.remove('hidden');
+                            console.log('ok')
+                        });
+                        // } else {
+                        //     element.classList.remove('visible');
+                        //     element.classList.add('hidden');
+                    }
+                });
+            }
+
+            // Initial check on page load
+            checkScroll();
+
+            // Check on scroll
+            window.addEventListener('scroll', checkScroll);
+        });
+
+    </script>
 </body>
 
 </html>
