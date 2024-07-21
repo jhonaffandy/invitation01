@@ -28,7 +28,7 @@
     <section id="hero"
         class="hero w-100 h-100 p-3 mx-auto text-center d-flex justify-content-center align-items-center text-white">
         <main>
-            <h4>Kepada Yth,</h4>
+            <h4>Kepada &nbsp;<span></span></h4>
             <h1>hananta & adinda</h1>
             <p>akan melangsungkan acara dalam:</p>
             <div class="simply-countdown"></div>
@@ -116,6 +116,12 @@
                     <h2>Informasi Acara</h2>
                     <p class="alamat">Alamat: Wisma PGRI Magetan. <br> Jl. Kemasan No.1, Dusun Magetan, Magetan, Kec.
                         Magetan, Kabupaten Magetan, Jawa Timur 63361</p>
+
+                    <iframe
+                        src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d15816.966899927405!2d111.3274362!3d-7.6571385!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e79922dc93e638d%3A0xb499d40868d70c09!2sWisma%20PGRI%20Magetan!5e0!3m2!1sid!2sid!4v1721405263062!5m2!1sid!2sid"
+                        width="100%" height="250" style="border:0;" allowfullscreen="" loading="lazy"
+                        referrerpolicy="no-referrer-when-downgrade"></iframe>
+
                     <a href="https://maps.app.goo.gl/9Nt9YgthTrq6zNFV9" target="_blank"
                         class="btn btn-light btn-sm my-4">Klik untuk membuka
                         peta</a>
@@ -344,6 +350,30 @@
                 </div>
 
             </form>
+            <div class="row justify-content-center mt-5">
+                <div class="col-md-6">
+                    <div id="disqus_thread"></div>
+                    <script>
+                        /**
+                        *  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+                        *  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables    */
+                        /*
+                        var disqus_config = function () {
+                        this.page.url = PAGE_URL;  // Replace PAGE_URL with your page's canonical URL variable
+                        this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+                        };
+                        */
+                        (function () { // DON'T EDIT BELOW THIS LINE
+                            var d = document, s = d.createElement('script');
+                            s.src = 'https://invitation-wedding-trial.disqus.com/embed.js';
+                            s.setAttribute('data-timestamp', +new Date());
+                            (d.head || d.body).appendChild(s);
+                        })();
+                    </script>
+                    <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments
+                            powered by Disqus.</a></noscript>
+                </div>
+            </div>
     </section>
 
     <section class="gifts" id="gifts">
@@ -543,6 +573,19 @@
         })
     </script>
 
+
+    <!-- get query params js-->
+    <script>
+        const urlParams = new URLSearchParams(window.location.search)
+        const nama = urlParams.get('to') || ''
+        const pronoun = urlParams.get('p') || 'Bapak/Ibu/Saudara/i'
+
+        const namaContainer = document.querySelector('.hero h4 span')
+        namaContainer.innerText = `${pronoun} ${nama},`.replace(/ ,$/, ',')
+        document.querySelector('#nama').value = nama
+    </script>
+
+    <!-- comments -->
 </body>
 
 </html>
